@@ -3,11 +3,13 @@ CREATE DATABASE practice;
 
 
 -- 問題2. postgresqlでpracticeデータベースのusersテーブルを生成するSQL文を記述してください。
+CREATE TYPE gender_type AS ENUM ('Man','Woman','Other');
+
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL DEFAULT '',
     age INTEGER NOT NULL DEFAULT 0,
-    gender VARCHAR(10) NOT NULL DEFAULT 'Other'
+    gender gender_type VARCHAR(10) NOT NULL DEFAULT 'Other'
 );
 
 COMMENT ON COLUMN users.username IS '氏名';
